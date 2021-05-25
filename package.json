@@ -1,8 +1,9 @@
 {
   "name": "@thirstcreative/nuxt-module",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Our nuxt module to start our projects.",
   "main": "index.js",
+  "CraftLink": "./components/CraftLink.vue",
   "dependencies": {
     "accepts": "^1.3.7",
     "acorn": "^7.4.1",
