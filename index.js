@@ -1,3 +1,6 @@
+// import components here
+import craftLink from './components/CraftLink.vue'
+
 const { resolve, join } = require('path')
 const { readdirSync } = require('fs')
 
@@ -129,5 +132,7 @@ export default function ThirstModule(moduleOptions) {
     }
   }
 }
+
+export const CraftLink = craftLink
 
 module.exports.meta = require('./package.json')
