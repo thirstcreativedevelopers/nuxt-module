@@ -1,5 +1,5 @@
 <template>
-  <span>
+  `<span>
     <a
       v-if="
         button.type === 'custom' ||
@@ -18,7 +18,7 @@
     >
       <slot></slot>
     </nuxt-link>
-  </span>
+  </span>`
 </template>
 
 <script>
