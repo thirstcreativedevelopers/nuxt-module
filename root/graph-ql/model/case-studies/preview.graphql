@@ -1,0 +1,26 @@
+fragment caseStudyPreview on caseStudies_caseStudies_Entry {
+  title
+  id
+  uri
+  hero: heroImageCaseStudy {
+    url @transform(width: 2000)
+  }
+  thumbnailImage:featuredImage {
+    url @transform(width: 1000, height: 1200)
+    loading: url @transform(width: 10)
+  }
+  featuredImage {
+    url @transform(width: 1000)
+    loading: url @transform(width: 10)
+  }
+  types: caseStudyTypes {
+    title
+    id
+    uri
+  }
+  industry {
+    title
+    id
+    uri
+  }
+}

@@ -1,6 +1,3 @@
-// import components here
-import craftLink from './components/CraftLink.vue'
-
 const { resolve, join } = require('path')
 const { readdirSync } = require('fs')
 
@@ -81,6 +78,12 @@ export default function ThirstModule(moduleOptions) {
   // 5-8 Sitemap
   this.addModule('@nuxtjs/sitemap')
 
+  this.options.sitemap = {
+    ...this.options.sitemap,
+    hostname: process.env.URL,
+  }
+
+
   // PLUGINS
   // 1 - Lazy loading
   // TODO: Write doco option Lazy loading
@@ -100,11 +103,19 @@ export default function ThirstModule(moduleOptions) {
     /*
      ** You can extend webpack config here
      */
+    postcss: {
+      ...this.options.build.postcss,
+      plugins: {
+        ...this.options.build.postcss.plugins,
+        'postcss-nested': {},
+      },
+    },
     transpile: [
       ...this.options.build.transpile,
       'lodash-es',
       '@nuxtjs/svg',
-      '~/module/thirst',
+      '@thirstcreative/nuxt-module',
+      '@thirstcreative/thirst-components',
     ],
   })
 
@@ -132,7 +143,5 @@ export default function ThirstModule(moduleOptions) {
     }
   }
 }
-
-export const CraftLink = craftLink
 
 module.exports.meta = require('./package.json')

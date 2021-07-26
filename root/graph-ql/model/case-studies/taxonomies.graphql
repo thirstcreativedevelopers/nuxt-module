@@ -1,0 +1,10 @@
+query Taxonomies {
+  industries: categories(group: "industries") {
+    title
+    slug
+  }
+  caseStudyType: categories(group: "caseStudyType") {
+    title
+    slug
+  }
+}

@@ -1,0 +1,44 @@
+#import "~/graph-ql/model/case-studies/preview.graphql"
+
+#import "~/graph-ql/model/fragments/content-builder.graphql"
+
+query CaseStudies($slug: [String]) {
+  entry(section: "caseStudies", slug: $slug, status: ["disabled", "enabled"]) {
+    ... on caseStudies_caseStudies_Entry {
+      ...caseStudyPreview
+      introduction: introductionCaseStudy
+      websiteLink
+      challenge: challengeCaseStudy
+      solution: solutionCaseStudy
+
+      contentBuilder {
+        __typename
+        ... on contentBuilder_NeoField {
+          ... contentBuilder
+        }
+      }
+
+      seo: seoOverride{
+        __typename
+        ... on seoOverride_BlockType {
+          title: SEOtitle
+          description: seoDescription
+          featuredImage:seoImage{
+            url @transform(width: 1000, immediately: true)
+          }
+        }
+      }
+
+      related: caseStudyListing {
+        ... on caseStudyListing_BlockType {
+          __typename
+          caseStudiesItems {
+            ... on caseStudies_caseStudies_Entry {
+              ...caseStudyPreview
+            }
+          }
+        }
+      }
+    }
+  }
+}

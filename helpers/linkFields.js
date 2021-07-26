@@ -20,7 +20,7 @@ export default (data) => ({
 
       const object = JSON.parse(
         '{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}',
-        function(key, value) {
+        function (key, value) {
           return key === '' ? value : decodeURIComponent(value)
         }
       )
@@ -34,5 +34,5 @@ export default (data) => ({
     // Process client means that it's only
     // ran in the browser
     return this.URL.path
-  }
+  },
 })
