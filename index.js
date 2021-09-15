@@ -94,6 +94,42 @@ export default function ThirstModule(moduleOptions) {
 
   this.options.storybook = {
     addons: ['@storybook/addon-controls', '@storybook/addon-notes'],
+    parameters: {
+      viewport: {
+        viewports: {
+          sm: {
+            name: 'sm',
+            styles: {
+              width: '640px',
+              height: '1500px',
+              
+            },
+          },
+          md: {
+            name: 'md',
+            styles: {
+              width: '768px',
+              height: '1500px',
+            },
+          },
+          lg: {
+            name: 'lg',
+            styles: {
+              width: '1024px',
+              height: '1500px',
+            },
+          },
+          xl: {
+            name: 'xl',
+            styles: {
+              width: '1288px',
+              height: '1500px',
+            },
+          },
+        }, // newViewports would be an ViewportMap. (see below for examples)
+        defaultViewport: 'xl',
+      },
+    },
   }
 
   this.options.build = Object.assign(this.options.build, {
