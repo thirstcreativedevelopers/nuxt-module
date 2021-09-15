@@ -126,6 +126,13 @@ export default function ThirstModule(moduleOptions) {
               height: '1500px',
             },
           },
+          desktop: {
+            name: 'desktop',
+            styles: {
+              width: '1920px',
+              height: '4000px',
+            },
+          },
         }, // newViewports would be an ViewportMap. (see below for examples)
         defaultViewport: 'xl',
       },
