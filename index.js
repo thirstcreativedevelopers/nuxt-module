@@ -134,7 +134,7 @@ export default function ThirstModule(moduleOptions) {
             },
           },
         }, // newViewports would be an ViewportMap. (see below for examples)
-        defaultViewport: 'xl',
+        defaultViewport: 'desktop',
       },
     },
   }
