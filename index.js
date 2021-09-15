@@ -101,7 +101,7 @@ export default function ThirstModule(moduleOptions) {
             name: 'sm',
             styles: {
               width: '640px',
-              height: '1500px',
+              height: '4000px',
               
             },
           },
@@ -109,21 +109,21 @@ export default function ThirstModule(moduleOptions) {
             name: 'md',
             styles: {
               width: '768px',
-              height: '1500px',
+              height: '4000px',
             },
           },
           lg: {
             name: 'lg',
             styles: {
               width: '1024px',
-              height: '1500px',
+              height: '4000px',
             },
           },
           xl: {
             name: 'xl',
             styles: {
               width: '1288px',
-              height: '1500px',
+              height: '4000px',
             },
           },
           desktop: {
