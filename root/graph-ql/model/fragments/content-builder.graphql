@@ -1,0 +1,7 @@
+#import "~/content-builder-modules/component-name.graphql"
+
+fragment contentBuilder on contentBuilder_NeoField {
+  ... on contentBuilder_NeoField {
+    ...componentName
+  }
+}

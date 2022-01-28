@@ -1,0 +1,15 @@
+#import "~/graph-ql/model/news/preview.graphql"
+
+#import "~/graph-ql/model/fragments/content-builder.graphql"
+
+query Services($slug: [String]) {
+  entry(section: "news", slug: $slug) {
+    ... on news_news_Entry {
+      ...NewsPreview
+      contentBuilder {
+        __typename
+        ...contentBuilder
+      }
+    }
+  }
+}

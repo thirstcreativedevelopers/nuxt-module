@@ -1,0 +1,9 @@
+fragment ComponentName on contentBuilder_ComponentName_BlockType {
+  ... on contentBuilder_ComponentName_BlockType {
+    ComponentName {
+      ... on componentName_BlockType {
+
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+query Latest($section:[String]) {
+  entries(section: $section, limit: 5) {
+    __typename
+    typeHandle
+    title
+    id
+    uri
+    slug
+  }
+}

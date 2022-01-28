@@ -1,0 +1,15 @@
+#import "~/graph-ql/model/case-studies/preview.graphql"
+#import "~/graph-ql/model/fragments/content-builder.graphql"
+
+query HomePage {
+  entry(section: "homepage") {
+    __typename
+    id
+    slug
+    url
+    uri
+    ... on homepage_homepage_Entry {
+
+    }
+  }
+}

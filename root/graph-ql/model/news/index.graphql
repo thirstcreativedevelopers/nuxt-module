@@ -1,0 +1,8 @@
+#import "~/graph-ql/model/news/preview.graphql"
+query NewsIndex {
+  entries(section: "news") {
+    ... on news_news_Entry {
+      ...NewsPreview
+    }
+  }
+}

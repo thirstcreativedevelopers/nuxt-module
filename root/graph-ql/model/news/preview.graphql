@@ -1,0 +1,26 @@
+#import "~/graph-ql/model/users/preview.graphql"
+fragment NewsPreview on news_news_Entry {
+  ... on news_news_Entry {
+    title
+    id
+    uri
+    slug
+    dateCreated
+    excerpt
+    readingTime
+    author {
+      ... on User {
+        ...UserPreview
+      }
+    }
+
+    postDate
+    postDateFormatted: postDate @formatDateTime(format: "d F Y")
+
+    featuredImage {
+      url @transform(width: 2000)
+      thumbnail: url @transform(width: 740, height: 520)
+      loading: url @transform(width: 10)
+    }
+  }
+}

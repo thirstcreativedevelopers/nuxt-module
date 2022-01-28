@@ -1,0 +1,20 @@
+#import "~/graph-ql/model/case-studies/preview.graphql"
+
+query CaseStudies(
+  $limit: Int,
+  $offset: Int,
+  $type: [QueryArgument],
+  $industy: [QueryArgument]
+
+) {
+  entries(
+    limit: $limit
+    offset: $offset
+    section: "caseStudies",
+    caseStudyTypes: $type,
+    industry: $industy) {
+    ... on caseStudies_caseStudies_Entry {
+      ...caseStudyPreview
+    }
+  }
+}

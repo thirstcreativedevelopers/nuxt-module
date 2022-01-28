@@ -1,6 +1,3 @@
-// import components here
-import craftLink from './components/CraftLink.vue'
-
 const { resolve, join } = require('path')
 const { readdirSync } = require('fs')
 
@@ -17,7 +14,9 @@ export default function ThirstModule(moduleOptions) {
   // 1 - Env file defaults
   this.options.env = {
     API_ENDPOINT: process.env.API_ENDPOINT,
+    CROSS_DEVICE_TESTING: process.env.CROSS_DEVICE_TESTING,
     URL: process.env.URL,
+    GA: process.env.GA,
     ...this.options.env,
   }
 
@@ -63,7 +62,9 @@ export default function ThirstModule(moduleOptions) {
   this.addModule('@nuxtjs/netlify-files')
 
   // 5-3 - GTM
-  this.addModule(['@nuxtjs/google-tag-manager', { id: process.env.GTM || '' }])
+  if(process.env.GTM) {
+    this.addModule(['@nuxtjs/google-tag-manager', { id: process.env.GTM || '' }])
+  }
 
   // 5-4 - SVG
   this.addModule('@nuxtjs/svg')
@@ -79,7 +80,15 @@ export default function ThirstModule(moduleOptions) {
   this.addModule('@nuxtjs/axios')
 
   // 5-8 Sitemap
-  this.addModule('@nuxtjs/sitemap')
+
+  this.addModule(['@nuxtjs/sitemap', {
+    hostname: process.env.URL || 'http://localhost:3000',
+    ...this.options.sitemap,
+  }])
+
+  this.options.storybook = {
+    ...this.options.storybook,
+  }
 
   // PLUGINS
   // 1 - Lazy loading
@@ -92,6 +101,23 @@ export default function ThirstModule(moduleOptions) {
     fileName: join(namespace, 'plugins/lazy.js'),
   })
 
+  // 2 - Thirst Components
+  this.addPlugin({
+    src: resolve(__dirname, 'plugins/components.js'),
+    mode: 'client',
+    fileName: join(namespace, 'plugins/components.js'),
+  })
+
+  // 3 - GA
+  if(process.env.GA) {
+    this.addPlugin({
+      src: resolve(__dirname, 'plugins/ga.js'),
+      mode: 'se',
+      options: OPTIONS.ga,
+      fileName: join(namespace, 'plugins/ga.js'),
+    })
+  }
+
   this.options.storybook = {
     addons: ['@storybook/addon-controls', '@storybook/addon-notes'],
   }
@@ -100,11 +126,19 @@ export default function ThirstModule(moduleOptions) {
     /*
      ** You can extend webpack config here
      */
+    postcss: {
+      ...this.options.build.postcss,
+      plugins: {
+        ...this.options.build.postcss.plugins,
+        'postcss-nested': {},
+      },
+    },
     transpile: [
       ...this.options.build.transpile,
       'lodash-es',
       '@nuxtjs/svg',
-      '~/module/thirst',
+      '@thirstcreative/nuxt-module',
+      '@thirstcreative/thirst-components',
     ],
   })
 
@@ -132,7 +166,5 @@ export default function ThirstModule(moduleOptions) {
     }
   }
 }
-
-export const CraftLink = craftLink
 
 module.exports.meta = require('./package.json')

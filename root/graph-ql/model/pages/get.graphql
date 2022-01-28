@@ -1,0 +1,19 @@
+#import "~/graph-ql/model/fragments/content-builder.graphql"
+
+query Pages($slug: [String]) {
+  entry(section: "pages", uri: $slug) {
+    title
+    id
+    uri
+    slug
+    dateCreated
+    ... on pages_pages_Entry {
+      contentBuilder {
+        __typename
+        ... on contentBuilder_NeoField {
+          ... contentBuilder
+        }
+      }
+    }
+  }
+}
