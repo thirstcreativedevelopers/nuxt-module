@@ -210,6 +210,13 @@ export default function ThirstModule(moduleOptions) {
       })
     }
   }
+
+  this.options.buildModules = this.options.buildModules || []
+
+	this.options.buildModules.push(
+		'@nuxtjs/google-analytics'
+	)
+  
 }
 
 module.exports.meta = require('./package.json')
