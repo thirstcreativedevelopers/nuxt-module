@@ -1,12 +1,11 @@
 {
   "name": "@thirstcreative/nuxt-module",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "description": "Our nuxt module to start our projects.",
   "main": "index.js",
   "CraftLink": "./components/CraftLink.vue",
   "dependencies": {
     "@nuxtjs/google-analytics": "^2.4.0",
-    "@nuxtjs/google-tag-manager": "^2.3.2",
     "@nuxtjs/netlify-files": "^1.2.0",
     "@nuxtjs/robots": "^2.5.0",
     "@nuxtjs/router": "^1.6.1",

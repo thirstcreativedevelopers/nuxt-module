@@ -65,7 +65,10 @@ export default function ThirstModule(moduleOptions) {
 
   // 5-3 - GTM
   if(process.env.GTM) {
-    this.addModule(['@nuxtjs/google-tag-manager', { id: process.env.GTM || '' }])
+    this.addModule('@nuxtjs/gtm')
+    this.options.gtm = {
+      id: process.env.GTM,
+    }
   }
 
   // 5-4 - SVG
@@ -213,9 +216,14 @@ export default function ThirstModule(moduleOptions) {
 
   this.options.buildModules = this.options.buildModules || []
 
-	this.options.buildModules.push(
-		'@nuxtjs/google-analytics'
-	)
+  if (process.env.GA) {
+    this.options.buildModules.push(
+      '@nuxtjs/google-analytics'
+    )
+    this.options.googleAnalytics = {
+      id: process.env.GA,
+    }
+  }
   
 }
 
