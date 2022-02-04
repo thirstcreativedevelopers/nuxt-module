@@ -115,12 +115,14 @@ export default function ThirstModule(moduleOptions) {
 
   // 3 - GA
   if(process.env.GA) {
-    this.addPlugin({
-      src: resolve(__dirname, 'plugins/ga.js'),
-      mode: 'se',
-      options: OPTIONS.ga,
-      fileName: join(namespace, 'plugins/ga.js'),
-    })
+
+    this.options.buildModules = this.options.buildModules || []
+    this.options.buildModules.push(
+      '@nuxtjs/google-analytics'
+    )
+    this.options.googleAnalytics = {
+      id: process.env.GA,
+    }
   }
 
   this.options.storybook = {
@@ -211,17 +213,6 @@ export default function ThirstModule(moduleOptions) {
         src: resolve(path, file),
         fileName: join(namespace, pathString, file),
       })
-    }
-  }
-
-  this.options.buildModules = this.options.buildModules || []
-
-  if (process.env.GA) {
-    this.options.buildModules.push(
-      '@nuxtjs/google-analytics'
-    )
-    this.options.googleAnalytics = {
-      id: process.env.GA,
     }
   }
   
