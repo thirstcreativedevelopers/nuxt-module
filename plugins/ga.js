@@ -5,7 +5,6 @@ export default ({ app }) => {
     if(!process.env.GA) {
         return
     }
-
     Vue.use(
         VueGtag,
         {

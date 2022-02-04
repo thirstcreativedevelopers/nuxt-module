@@ -17,6 +17,7 @@ export default function ThirstModule(moduleOptions) {
     CROSS_DEVICE_TESTING: process.env.CROSS_DEVICE_TESTING,
     URL: process.env.URL,
     GA: process.env.GA,
+    GTM: process.env.GTM,
     ...this.options.env,
   }
 
@@ -58,8 +59,9 @@ export default function ThirstModule(moduleOptions) {
     ],
     true
   )
+
   // 5-2 - Netlify
-  this.addModule('@nuxtjs/netlify-files')
+    this.addModule('@nuxtjs/netlify-files')
 
   // 5-3 - GTM
   if(process.env.GTM) {
