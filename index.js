@@ -64,6 +64,8 @@ export default function ThirstModule(moduleOptions) {
     this.addModule('@nuxtjs/netlify-files')
 
   // 5-3 - GTM
+  console.log('THIS IS THE GTM', process.env.GTM)
+  console.error('THIS IS THE GTM', process.env.GTM)
   if(process.env.GTM) {
     this.addModule('@nuxtjs/gtm')
     this.options.gtm = {
