@@ -37,10 +37,10 @@ export default function ThirstModule(moduleOptions) {
   }
 
   // 3 - Server
-  // this.options.server = {
-  //   port: 3000,
-  //   host: process.env.CROSS_DEVICE_TESTING === '1' ? '0.0.0.0' : 'localhost',
-  // }
+  this.options.server = {
+    port: process.env.PORT || 3000,
+    host: process.env.CROSS_DEVICE_TESTING === '1' ? '0.0.0.0' : 'localhost',
+  }
 
   // 4 - Middleware
   // this.addPlugin({
