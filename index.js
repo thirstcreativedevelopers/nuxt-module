@@ -17,7 +17,9 @@ export default function ThirstModule(moduleOptions) {
     CROSS_DEVICE_TESTING: process.env.CROSS_DEVICE_TESTING,
     URL: process.env.URL,
     GA: process.env.GA,
+    GA_V2: process.env.GA_V2,
     GTM: process.env.GTM,
+    GTM_V2: process.env.GTM_V2,
     ...this.options.env,
   }
 
@@ -64,12 +66,15 @@ export default function ThirstModule(moduleOptions) {
     this.addModule('@nuxtjs/netlify-files')
 
   // 5-3 - GTM
-  console.log('THIS IS THE GTM', process.env.GTM)
-  console.error('THIS IS THE GTM', process.env.GTM)
+
   if(process.env.GTM) {
+    this.addModule(['@nuxtjs/google-tag-manager', { id: process.env.GTM || '' }])
+  }
+  
+  if(process.env.GTM_V2) {
     this.addModule('@nuxtjs/gtm')
     this.options.gtm = {
-      id: process.env.GTM,
+      id: process.env.GTM_V2,
     }
   }
 
@@ -116,14 +121,24 @@ export default function ThirstModule(moduleOptions) {
   })
 
   // 3 - GA
+
   if(process.env.GA) {
+    this.addPlugin({
+      src: resolve(__dirname, 'plugins/ga.js'),
+      mode: 'se',
+      options: OPTIONS.ga,
+      fileName: join(namespace, 'plugins/ga.js'),
+    })
+  }
+  
+  if(process.env.GA_V2) {
 
     this.options.buildModules = this.options.buildModules || []
     this.options.buildModules.push(
       '@nuxtjs/google-analytics'
     )
     this.options.googleAnalytics = {
-      id: process.env.GA,
+      id: process.env.GA_V2,
     }
   }
 
