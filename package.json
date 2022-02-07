@@ -1,6 +1,6 @@
 {
   "name": "@thirstcreative/nuxt-module",
-  "version": "0.0.308",
+  "version": "0.0.309",
   "description": "Our nuxt module to start our projects.",
   "main": "index.js",
   "CraftLink": "./components/CraftLink.vue",
@@ -16,7 +16,7 @@
     "@storybook/addon-controls": "^6.4.18",
     "@storybook/addon-notes": "^5.3.21",
     "@thirstcreative/components": "^1.0.3",
-    "@thirstcreative/google-tag-manager": "^2.3.3",
+    "@thirstcreative/google-tag-manager": "^2.3.301",
     "@thirstcreative/thirst-components": "^0.1.4",
     "@vue/cli-service": "^4.5.13",
     "apollo-cache-inmemory": "^1.6.6",

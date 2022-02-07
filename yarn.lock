@@ -2695,10 +2695,10 @@
     "@thirstcreative/thirst-helpers" "^1.0.1"
     lodash-es "^4.17.21"
 
-"@thirstcreative/google-tag-manager@^2.3.3":
-  version "2.3.3"
-  resolved "https://registry.yarnpkg.com/@thirstcreative/google-tag-manager/-/google-tag-manager-2.3.3.tgz#3975156c208f179dc5eee68f479601ef36c661ba"
-  integrity sha512-n0X0DoBji1SbeZwuYIyh49FNcYUNS/BMLAd8lh9H6XG1fZznZYHmJPq+Ae2uaBMJRzn7fvPLfPpKqByu24VSGQ==
+"@thirstcreative/google-tag-manager@^2.3.301":
+  version "2.3.301"
+  resolved "https://registry.yarnpkg.com/@thirstcreative/google-tag-manager/-/google-tag-manager-2.3.301.tgz#8f02a95bddb52759cd1ce5579be00480ed50dc2b"
+  integrity sha512-sEn/78v2swB/P4mPSgO+H6kjOx+PyFUzRnsG78GSOTbnASbg4sK5EebnRmEnwOhy+RCS2Os746tiQ5Iflv8OZg==
 
 "@thirstcreative/thirst-components@^0.1.4":
   version "0.1.5"
