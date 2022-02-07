@@ -1,6 +1,6 @@
 {
   "name": "@thirstcreative/nuxt-module",
-  "version": "0.0.306",
+  "version": "0.0.307",
   "description": "Our nuxt module to start our projects.",
   "main": "index.js",
   "CraftLink": "./components/CraftLink.vue",
