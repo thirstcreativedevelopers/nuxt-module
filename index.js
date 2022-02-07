@@ -67,7 +67,7 @@ export default function ThirstModule(moduleOptions) {
 
   // 5-3 - GTM
   if(process.env.GTM) {
-    this.addModule(['@nuxtjs/google-tag-manager', { id: process.env.GTM || '', pageTracking: true }])
+    this.addModule(['@thirstcreative/google-tag-manager', { id: process.env.GTM || '', pageTracking: true }])
   }
   
   if(process.env.GTM_V2) {
